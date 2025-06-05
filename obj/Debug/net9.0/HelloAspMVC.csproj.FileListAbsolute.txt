@@ -112,3 +112,4 @@ D:\workspace\HelloAspMVC\HelloAspMVC\bin\Debug\net9.0\MySqlConnector.dll
 D:\workspace\HelloAspMVC\HelloAspMVC\bin\Debug\net9.0\Pomelo.EntityFrameworkCore.MySql.dll
 D:\workspace\HelloAspMVC\HelloAspMVC\obj\Debug\net9.0\HelloAspMVC.csproj.AssemblyReference.cache
 D:\workspace\HelloAspMVC\HelloAspMVC\obj\Debug\net9.0\HelloAsp.29CBD070.Up2Date
+D:\workspace\HelloAspMVC\HelloAspMVC\obj\Debug\net9.0\HelloAspMVC.sourcelink.json
