@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFx0ZXN0Rm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/workspace/HelloAspMVC/HelloAspMVC/Views/Test/testNewAspTestUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFx0ZXN0TmV3QXNwVGVzdFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/workspace/HelloAspMVC/HelloAspMVC/Views/Test/testView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFx0ZXN0Vmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

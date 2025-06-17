@@ -113,3 +113,8 @@ D:\workspace\HelloAspMVC\HelloAspMVC\bin\Debug\net9.0\Pomelo.EntityFrameworkCore
 D:\workspace\HelloAspMVC\HelloAspMVC\obj\Debug\net9.0\HelloAspMVC.csproj.AssemblyReference.cache
 D:\workspace\HelloAspMVC\HelloAspMVC\obj\Debug\net9.0\HelloAsp.29CBD070.Up2Date
 D:\workspace\HelloAspMVC\HelloAspMVC\obj\Debug\net9.0\HelloAspMVC.sourcelink.json
+D:\workspace\HelloAspMVC\HelloAspMVC\bin\Debug\net9.0\AutoMapper.dll
+D:\workspace\HelloAspMVC\HelloAspMVC\bin\Debug\net9.0\BusinessLayer.dll
+D:\workspace\HelloAspMVC\HelloAspMVC\bin\Debug\net9.0\DataAccessLayer.dll
+D:\workspace\HelloAspMVC\HelloAspMVC\bin\Debug\net9.0\BusinessLayer.pdb
+D:\workspace\HelloAspMVC\HelloAspMVC\bin\Debug\net9.0\DataAccessLayer.pdb

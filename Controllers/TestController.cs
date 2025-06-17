@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using HelloAspMVC.Models;
+using BusinessLayer.DTO;
+using BusinessLayer.Services;
 
 namespace HelloAspMVC.Controllers;
 
@@ -8,10 +10,12 @@ namespace HelloAspMVC.Controllers;
 public class TestController : Controller
 {
     private readonly ILogger<TestController> _logger;
+    private ILoginService loginService;
 
     public TestController(ILogger<TestController> logger)
     {
         _logger = logger;
+        loginService = new LoginService();
     }
 
     public string test()
@@ -29,20 +33,20 @@ public class TestController : Controller
         return "user id: " + userid + " age: " + age;
     }
 
-    public string test4()
-    {
-        // 사용자의 요청에서 쿼리 파라미터 값 얻어오기
-        string userid = Request.Query["userid"];
-        string? age = Request.Query["age"]; // ? 는 null 도 허용한다는 의미
-        return "user id: " + userid + " age: " + age;
-    }
+    // public string test4()
+    // {
+    //     // 사용자의 요청에서 쿼리 파라미터 값 얻어오기
+    //     string? userid = Request.Query["userid"];
+    //     string? age = Request.Query["age"]; // ? 는 null 도 허용한다는 의미
+    //     return "user id: " + userid + " age: " + age;
+    // }
 
-    public string test5(Users user)
-    {
-        string userid = user.UserId;
-        int age = user.Age;
-        return "user id: " + userid + " age: " + age + "!!";
-    }
+    // public string test5(Users user)
+    // {
+    //     string userid = user.UserId;
+    //     int age = user.Age;
+    //     return "user id: " + userid + " age: " + age + "!!";
+    // }
 
     // IActionResult 은 View 인터페이스 구현체
     public IActionResult testView()
@@ -72,7 +76,7 @@ public class TestController : Controller
     {
         return View(); // 경로 생략도 가능 - 컨트롤러 이름에서 앞부분만 딴 폴더 이름 생성 ex) Views/Test/액션(메서드) 이름.cshtml
     }
-    
+
     [HttpPost]
     public IActionResult testForm(string userId, int age)
     {
@@ -80,4 +84,21 @@ public class TestController : Controller
         Console.WriteLine("age = " + age);
         return Redirect("/test/testView");
     }
+
+    public IActionResult testNewAspTestUser()
+    {
+        return View();
+    }
+    
+    [HttpPost]
+    public IActionResult CreateAspTestUser(CreateAspTestDTO request)
+    {
+        Console.WriteLine("userId = " + request.Userid);
+        Console.WriteLine("username = " + request.Username);
+        Console.WriteLine("point = " + request.Point);
+        // 비즈니스 계층  LoginService
+        loginService.CreateAspTestUser(request); // 회원가입
+        return Redirect("/test/testView");
+    }
+    
 }
