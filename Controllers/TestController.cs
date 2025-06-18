@@ -12,10 +12,10 @@ public class TestController : Controller
     private readonly ILogger<TestController> _logger;
     private ILoginService loginService;
 
-    public TestController(ILogger<TestController> logger)
+    public TestController(ILogger<TestController> logger, ILoginService service)
     {
         _logger = logger;
-        loginService = new LoginService();
+        loginService = service;
     }
 
     public string test()
@@ -91,13 +91,14 @@ public class TestController : Controller
     }
     
     [HttpPost]
-    public IActionResult CreateAspTestUser(CreateAspTestDTO request)
+    public async Task<IActionResult> CreateAspTestUser(CreateAspTestDTO request)
     {
         Console.WriteLine("userId = " + request.Userid);
         Console.WriteLine("username = " + request.Username);
         Console.WriteLine("point = " + request.Point);
         // 비즈니스 계층  LoginService
-        loginService.CreateAspTestUser(request); // 회원가입
+        // 비동기 함수 호출 -> awiat 추가
+        await loginService.CreateAspTestUser(request); // 회원가입
         return Redirect("/test/testView");
     }
     
