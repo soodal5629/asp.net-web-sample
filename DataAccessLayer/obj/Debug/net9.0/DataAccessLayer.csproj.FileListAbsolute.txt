@@ -1,0 +1,13 @@
+D:\workspace\HelloAspMVC\DataAccessLayer\bin\Debug\net9.0\DataAccessLayer.deps.json
+D:\workspace\HelloAspMVC\DataAccessLayer\bin\Debug\net9.0\DataAccessLayer.dll
+D:\workspace\HelloAspMVC\DataAccessLayer\bin\Debug\net9.0\DataAccessLayer.pdb
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\DataAccessLayer.csproj.AssemblyReference.cache
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\DataAccessLayer.AssemblyInfoInputs.cache
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\DataAccessLayer.AssemblyInfo.cs
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\DataAccessLayer.sourcelink.json
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\DataAccessLayer.dll
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\refint\DataAccessLayer.dll
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\DataAccessLayer.pdb
+D:\workspace\HelloAspMVC\DataAccessLayer\obj\Debug\net9.0\ref\DataAccessLayer.dll
