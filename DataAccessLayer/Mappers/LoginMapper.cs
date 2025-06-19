@@ -42,6 +42,43 @@ namespace DataAccessLayer.Mappers
                 throw;
             }
         }
+
+        public async Task<List<AspTestUser>> GetAllAspTestUser()
+        {
+            try
+            {
+                List<AspTestUser> list = new List<AspTestUser>();
+                using (MySqlConnection sqlConnection = new MySqlConnection(connectionString))
+                {
+                    await sqlConnection.OpenAsync();
+                    MySqlCommand sqlCommand = sqlConnection.CreateCommand();
+                    sqlCommand.CommandText = "SELECT * FROM ASP_TEST_USER";
+                    // await 사용하여 결과 기다릴 뿐만 아니라 예외도 받을 수 있음
+                    MySqlDataReader reader = await sqlCommand.ExecuteReaderAsync();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            AspTestUser readUser = new AspTestUser
+                            {
+                                // 엔티티의 속성명을 정확하게 입력해야 함(대소문자 구분)
+                                Id = reader.GetInt32(reader.GetOrdinal("id")),
+                                Userid = reader.GetString(reader.GetOrdinal("userid")),
+                                Username = reader.GetString(reader.GetOrdinal("username")),
+                                Point = reader.GetInt32(reader.GetOrdinal("point"))
+                            };
+                            list.Add(readUser);
+                        }
+                    }
+                    reader.Close();
+                }
+                return list;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 
 }

@@ -101,5 +101,12 @@ public class TestController : Controller
         await loginService.CreateAspTestUser(request); // 회원가입
         return Redirect("/test/testView");
     }
+
+    // select All
+    public async Task<IActionResult> GetAllAspTestUser()
+    {
+        return View(await loginService.GetAllAspTestUser());
+    }
+
     
 }

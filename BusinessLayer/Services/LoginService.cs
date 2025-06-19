@@ -25,9 +25,31 @@ public class LoginService : ILoginService // ILoginService 인터페이스 구�
             // 비동기 함수 호출한 경우 예외 잡기 외해 await 추가
             await loginMapper.Create(user);
         }
-        catch(Exception) {
+        catch (Exception)
+        {
             throw;
         }
-        
+
+    }
+
+    public async Task<List<ResponseAspTestUserDTO>> GetAllAspTestUser()
+    {
+        try
+        {
+            // 비동기 함수 호출한 경우 예외 잡기 외해 await 추가
+            List<AspTestUser> findList = await loginMapper.GetAllAspTestUser();
+            // DTO → Entity 변경
+            var configuration = new MapperConfiguration(cfg => cfg.CreateMap<AspTestUser, ResponseAspTestUserDTO>());
+            Mapper mapper = new Mapper(configuration);
+            // C#은 List로 이렇게 entity <-> dto 변경이 가능하구나,,
+            List<ResponseAspTestUserDTO> responseList = mapper.Map<List<AspTestUser>, List<ResponseAspTestUserDTO>>(findList);
+
+            return responseList;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+
     }
 }

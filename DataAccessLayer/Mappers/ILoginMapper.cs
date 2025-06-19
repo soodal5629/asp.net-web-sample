@@ -5,5 +5,6 @@ namespace DataAccessLayer.Mappers
     public interface ILoginMapper
     {
         Task<AspTestUser> Create(AspTestUser user);
+        Task<List<AspTestUser>> GetAllAspTestUser();
     }
 }
