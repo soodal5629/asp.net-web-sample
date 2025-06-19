@@ -6,7 +6,7 @@ namespace BusinessLayer.Services;
 
 public class LoginService : ILoginService // ILoginService 인터페이스 구현
 {
-    ILoginMapper loginMapper;
+    private ILoginMapper loginMapper;
     public LoginService(ILoginMapper mapper)
     {
         loginMapper = mapper;

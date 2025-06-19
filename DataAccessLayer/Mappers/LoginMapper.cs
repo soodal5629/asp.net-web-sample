@@ -5,8 +5,11 @@ namespace DataAccessLayer.Mappers
 {
     public class LoginMapper : ILoginMapper
     {
-        private string connectionString = "Server=localhost;Database=test;Uid=root;Pwd=ldcc!2626;";
-
+        private string connectionString;
+        public LoginMapper(string conn)
+        {
+            connectionString = conn;
+        }
         public async Task<AspTestUser> Create(AspTestUser user)
         {
             try
