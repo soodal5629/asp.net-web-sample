@@ -20,8 +20,10 @@ builder.Services.AddDbContext<SchoolContext>
 (   options => options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection")))
 );
-
+// 세션 사용 가능하도록 설정
+builder.Services.AddSession();
 var app = builder.Build();
+app.UseSession();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

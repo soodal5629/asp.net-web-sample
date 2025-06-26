@@ -113,9 +113,33 @@ public class TestController : Controller
         return View();
     }
 
+    public IActionResult testLoginView()
+    {
+        ResponseAspTestUserDTO? user = HttpContext.Session.Get<ResponseAspTestUserDTO>("LoginUser");
+        var list = new List<string> {};
+        if (user != null)
+        {
+            if (user.Userid != null) { 
+                list.Add(user.Userid);    
+            }
+            if (user.Username != null)
+            { 
+                list.Add(user.Username);    
+            }
+        }
+
+        return View(list);
+    }
+
     public async Task<IActionResult> GetAspTestUser(GetAspTestUserDTO request)
     {
-        return View(await loginService.GetAspTestUser(request));
+        // 로그인한 유저라 가정
+        ResponseAspTestUserDTO responseDTO = await loginService.GetAspTestUser(request);
+        // 직렬화 객체 <-> json
+        // 세션 저장 
+        HttpContext.Session.Set("LoginUser", responseDTO); // 파라미터: key, value
+
+        return Redirect("/test/testLoginView");
     }
 
 }
