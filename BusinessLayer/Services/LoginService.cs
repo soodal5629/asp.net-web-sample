@@ -1,3 +1,4 @@
+using System.Data;
 using AutoMapper;
 using BusinessLayer.DTO;
 using DataAccessLayer.Mappers;
@@ -45,6 +46,33 @@ public class LoginService : ILoginService // ILoginService 인터페이스 구�
             List<ResponseAspTestUserDTO> responseList = mapper.Map<List<AspTestUser>, List<ResponseAspTestUserDTO>>(findList);
 
             return responseList;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+
+    }
+
+    public async Task<ResponseAspTestUserDTO> GetAspTestUser(GetAspTestUserDTO request)
+    {
+        try
+        {
+            // DTO → Entity 변경
+            var configuration = new MapperConfiguration(cfg => { }); // 명시적 구성 없이 동적객체 연결 가능
+            Mapper mapper = new Mapper(configuration);
+            // GetAspTestUserDTO을 딕셔너리 형태의 key-value 형태로 저장됨
+            Dictionary<string, object> dc = mapper.Map<GetAspTestUserDTO, Dictionary<string, object>>(request);
+            ProcCall procCall = new ProcCall();
+            // 프로시저 호출
+            DataTable dt = await procCall.RequestProcedure("sp_usertest", dc);
+            ResponseAspTestUserDTO response = new ResponseAspTestUserDTO();
+            response.Id = (int) dt.Rows[0]["id"];
+            response.Userid = dt.Rows[0]["userid"].ToString();
+            response.Username = dt.Rows[0]["username"].ToString();
+            response.Point = (int) dt.Rows[0]["point"];
+
+            return response;
         }
         catch (Exception)
         {

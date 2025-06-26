@@ -108,5 +108,14 @@ public class TestController : Controller
         return View(await loginService.GetAllAspTestUser());
     }
 
-    
+    public IActionResult SearchUserId()
+    {
+        return View();
+    }
+
+    public async Task<IActionResult> GetAspTestUser(GetAspTestUserDTO request)
+    {
+        return View(await loginService.GetAspTestUser(request));
+    }
+
 }
