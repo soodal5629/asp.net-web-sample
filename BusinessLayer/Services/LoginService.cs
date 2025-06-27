@@ -63,6 +63,8 @@ public class LoginService : ILoginService // ILoginService 인터페이스 구�
             Mapper mapper = new Mapper(configuration);
             // GetAspTestUserDTO을 딕셔너리 형태의 key-value 형태로 저장됨
             Dictionary<string, object> dc = mapper.Map<GetAspTestUserDTO, Dictionary<string, object>>(request);
+            // 간단한 예제이므로 패스워드 속성은 제거 (프로시저에는 패스워드 입력 파라미터가 없으므로)
+            dc.Remove("Password");
             ProcCall procCall = new ProcCall();
             // 프로시저 호출
             DataTable dt = await procCall.RequestProcedure("sp_usertest", dc);

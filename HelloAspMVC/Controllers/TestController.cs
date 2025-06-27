@@ -133,6 +133,10 @@ public class TestController : Controller
 
     public async Task<IActionResult> GetAspTestUser(GetAspTestUserDTO request)
     {
+        if (!ModelState.IsValid)
+        {
+            return Redirect("/test/SearchUserId");
+        }
         // 로그인한 유저라 가정
         ResponseAspTestUserDTO responseDTO = await loginService.GetAspTestUser(request);
         // 직렬화 객체 <-> json
